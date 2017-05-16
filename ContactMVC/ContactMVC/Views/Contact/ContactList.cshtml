@@ -1,0 +1,21 @@
+﻿@model List<ContactMVC.Models.Contact>
+@{
+    ViewBag.Title = "ContactList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>List of Contacts: </p>
+<table class="table table-striped">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+    </tr>
+    @foreach (var contact in Model)
+    {
+        <tr>
+            <td>@contact.FirstName</td>
+            <td>@contact.LastName</td>
+        </tr>
+    }
+</table>
+
