@@ -34,6 +34,7 @@ namespace Contacto.Controllers
             return View("AddContact");
         }
 
+        [HttpPost]
         public ActionResult AddContact(Contact contact)
         {
             if(!ModelState.IsValid)
