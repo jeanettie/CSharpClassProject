@@ -9,9 +9,12 @@
     <h1>Enter a name</h1>
     @using (var form = Html.BeginForm("AddContact", "Home"))
     {
-        <p>First Name: @Html.TextBoxFor(x => x.FirstName)</p>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <p>First Name: @Html.EditorFor(model => model.FirstName, 
+           new { htmlAttributes = new { @class = "form-control" } }) @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })</p>
         <br/>
-        <p>Last Name: @Html.TextBoxFor(x => x.LastName)</p>
+        <p>Last Name: @Html.TextBoxFor(x => x.LastName) @Html.ValidationMessageFor(model => model.LastName)</p>
         <input type="submit" value="Add Contact" name="submitContact"/>
     }
 </div>

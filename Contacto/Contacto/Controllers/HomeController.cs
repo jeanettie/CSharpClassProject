@@ -36,6 +36,10 @@ namespace Contacto.Controllers
 
         public ActionResult AddContact(Contact contact)
         {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
             _contactRepository.AddContact(contact);
             return View("SingleContact",contact);
         }
